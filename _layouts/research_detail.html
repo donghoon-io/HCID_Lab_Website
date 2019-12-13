@@ -2,12 +2,11 @@
 layout: default
 ---
 {% assign prof = site.data.professor[page.professor] %}
-
-
+{% assign image_url = page.image | prepend: "/assets/images/research/" %}
 
 <!-- [mod] start page title section -->
-<section class="wow fadeIn cover-background background-position-top top-space"
-    style="background-image:url('/images/header/research.jpg');">
+<section class="sm-margin-50px-top wow fadeIn cover-background background-position-top top-space"
+    style="background-image:url({{image_url}});">
     <div class="opacity-medium bg-extra-dark-gray"></div>
     <div class="container">
         <div class="row">

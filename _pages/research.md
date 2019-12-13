@@ -1,7 +1,7 @@
 ---
-layout: projects
-permalink: /projects/
-title: PROJECTS
+layout: research
+permalink: /research/
+title: RESEARCH
 ---
 <!-- Sample Publication Page -->
 <!-- Sample -->

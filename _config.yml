@@ -89,6 +89,6 @@ collections:
   people:
     output: true
     permalink: /:collection/:name
-  projects:
+  research:
     output: true
     permalink: /:collection/:slug
