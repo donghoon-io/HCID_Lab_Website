@@ -3,7 +3,7 @@ layout: default
 ---
 <!-- reference: research.html -->
 {% assign prof = site.data.professor[page.professor] %}
-
+{% assign publications = site.data.publication %}
 
 <!-- [mod] start page title section -->
 <section class="sm-margin-50px-top cover-background background-position-top top-space"
@@ -26,27 +26,27 @@ layout: default
 </section>
 <!-- end page title section -->
 
-{% for year in page.years %}
 <!-- [mod] start information section -->
 <section class="animated animated">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12 center-col last-paragraph-no-margin">
+            {% for year in publications.papers %}
+            <div class="col-md-12 col-sm-12 center-col margin-five-bottom last-paragraph-no-margin">
                 <h5 class="text-extra-dark-gray alt-font margin-30px-left">
-                    {{year}}
+                    {{year.year}}
                 </h5>
-                <!--
-                            Cannot user frontmatter array as a single parameter for the bibliography command.
-                            Pass them manually. 
-                            Refer bib.html in the _layouts folder for reference styles. For {% reference %}, refer to the csl file in the assets folder.
-                             -->
-                <p>
-                    {% bibliography --file all --query @*[year={{year}}]* %}
-                </p>
+                <div class="display-table">
+                    <div class="display-table-cell vertical-align-middle sm-text-center padding-20px-lr width-100">
+                        {% for paper in year.list %}
+                        <div class="left_line margin-15px-bottom">
+                            <p><strong>{{paper.title}}</strong></br>{{paper.author}}</br>{{paper.venue}}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>
-{% endfor %}
 <!-- [mod] end information section -->
-
